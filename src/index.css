@@ -1,0 +1,28 @@
+.App {
+  display: flex;
+  flex-direction: column; /* Arrange elements vertically */
+  justify-content: center; /* Center along vertical axis */
+  align-items: center; /* Center along horizontal axis */
+  height: 100vh; /* Full viewport height */
+  font-family: Arial, sans-serif; /* Optional styling */
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between buttons and text */
+  margin-bottom: 20px; /* Space between control rows */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.output {
+  margin-top: 20px; /* Space above the output */
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center; /* Center text content */
+}
