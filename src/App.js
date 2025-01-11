@@ -31,6 +31,10 @@ function App() {
     today.setDate(today.getDate() + days);
     return today;
   }
+  function handleReset() {
+    setStep(1);
+    setCount(0);
+  }
 
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
@@ -45,12 +49,24 @@ function App() {
     <div className="App">
       <div className="controls">
         <button onClick={decreaseStep}>-</button>
-        <span>Step: {step}</span>
+        <label htmlFor="slider">Slider Value: {step}</label>
+        <input
+          type="range"
+          id="slider"
+          min="1"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(+e.target.value)}
+        />
         <button onClick={increaseStep}>+</button>
       </div>
       <div className="controls">
         <button onClick={decreaseCount}>-</button>
-        <span>Count: {count}</span>
+        <input
+          type="number"
+          value={count}
+          onChange={(e) => setCount(+e.target.value)}
+        />
         <button onClick={increaseCount}>+</button>
       </div>
       <div className="output">
@@ -69,6 +85,15 @@ function App() {
           </span>
         )}
       </div>
+      {count !== 0 || step !== 1 ? (
+        <div className="reset">
+          <button className="resetBtn" onClick={handleReset}>
+            Reset
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
